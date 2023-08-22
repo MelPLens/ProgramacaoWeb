@@ -1,6 +1,8 @@
 # Programação Web!
 ### Objetivos da Disciplina
 
+• Conhecer e aplicar as tecnologias front-end para o desenvolvimento de sistemas web;
+
 • Conhecer os fundamentos para desenvolvimento web;
 
 • Compreender o ambiente de desenvolvimento web;
@@ -13,4 +15,4 @@
 
 • Construir aplicações web com bootstrap;
 
-• Conhecer um framework front-end para desenvolvimento web;
+• Conhecer um framework front-end para desenvolvimento web.
