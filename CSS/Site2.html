@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site 2</title>
+    <head>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: Arial, Helvetica, sans-serif;
+                
+            }
+            
+    
+            .menu-topo {
+                position: fixed;
+                top: 0;
+                left: 0px;
+                width: 100%;
+                background-color: #333;
+                color: #fff;
+                padding: 15px;
+                align-items:center;
+                display: flex;
+                flex-direction: column-reverse;               
+               
+            }
+
+            a{
+                color:#fff;
+                text-decoration: none;
+                
+                margin-left: 20px;
+               
+            }
+            
+    
+            .menu-lateral {
+                position: fixed;
+                top: 60px; /* altura do menu superior */
+                left: 0px;
+                width: 15%;
+                height: 100%;
+                background-color: #555;
+                color: white;
+                padding: 10px;
+                
+                
+            }
+
+            ul{
+                list-style: none;
+                display: inline;
+                
+            }
+    
+            .conteudo {
+                margin-left: 20%; /* largura do menu lateral */
+                padding: 50px;
+                position: relative;
+                left: 30px;
+                top:30px;
+            }
+    
+            .rodape {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: #333;
+                color: #fff;
+                padding: 10px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="menu-topo">
+            <nav>
+                    <a href="#">Início</a>
+                    <a href="#">Sobre</a>
+                    <a href="#">Contato</a>
+                </ul>
+            </nav>
+        </div>
+        <div class="menu-lateral">
+            <nav>
+                <ul>
+                    <li><a href="#">Menu 1</a></li>
+                    <li><a href="#">Menu 2</a></li>
+                    <li><a href="#">Menu 3</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="conteudo">
+            <h1>Conteúdo Principal</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+        </div>
+        <div class="rodape">
+            <p> © 2023 Meu Site</p>
+        </div>
+    </body>
+    </html>
