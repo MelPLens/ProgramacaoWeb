@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercício 1</title>
+    <script>
+        function changeColor() {
+            const colors = ["red", "blue", "green", "yellow", "orange"];
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            const div = document.getElementById("myDiv");
+            div.style.backgroundColor = colors[randomIndex];
+        }
+    </script>
+</head>
+<body>
+    <button onclick="changeColor()">Mudar Cor</button>
+    <div id="myDiv" style="width: 100px; height: 100px;"></div>
+</body>
+</html>
