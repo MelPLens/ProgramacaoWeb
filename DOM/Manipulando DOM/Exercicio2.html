@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercício 2</title>
+    <script>
+        function addTask() {
+            const taskText = document.getElementById("taskInput").value;
+            if (taskText.trim() !== "") {
+                const taskList = document.getElementById("taskList");
+                const newTask = document.createElement("li");
+                newTask.textContent = taskText;
+                taskList.appendChild(newTask);
+                document.getElementById("taskInput").value = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="taskInput" placeholder="Digite uma tarefa">
+    <button onclick="addTask()">Adicionar</button>
+    <ul id="taskList"></ul>
+</body>
+</html>
