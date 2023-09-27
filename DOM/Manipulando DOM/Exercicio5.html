@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercício 5</title>
+    <script>
+        function countWords() {
+            const paragraph = document.getElementById("paragraph").value;
+            const words = paragraph.split(/\s+/).filter(word => word.length > 0);
+            const wordCount = words.length;
+            document.getElementById("wordCount").textContent = "Número de palavras: " + wordCount;
+        }
+    </script>
+</head>
+<body>
+    <textarea id="paragraph" rows="4" cols="50" placeholder="Digite um parágrafo"></textarea>
+    <button onclick="countWords()">Contar Palavras</button>
+    <p id="wordCount"></p>
+</body>
+</html>
