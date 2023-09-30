@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta CEP</title>
+</head>
+<body>
+<form >
+
+    <fieldset>
+        <legend>Consultar CEP</legend>
+<p>
+    <label for="cep">CEP:</label>
+    <input type="text" name="cep" id="cep">
+    <button onclick="consulta(event)">Consultar</button>
+</p>
+    </fieldset>
+    <fieldset>
+<legend>Enedereço</legend>
+<p>
+<label >Rua:</label>
+<input type="text" name="logradouro" id="logradouro">
+</p>
+<p>
+
+    <label>Bairro:</label>
+    <input type="text" name="bairro" id="bairro">
+
+
+</p>
+
+<p>
+<label>Cidade</label>
+<input type="text" name="localidade" id="localidade">
+
+</p>
+</fieldset>
+
+  
+</form>
+
+
+<script>
+async function consulta(event){
+    event.preventDefault()
+    let cep=document.querySelector('#cep').value// caixa de texto do input
+    consultaCEP(cep)
+    let dados=await consultaCEP(cep)
+
+    document.querySelector('#logradouro').value=dados.logradouro
+    document.querySelector('#bairro').value=dados.bairro
+    document.querySelector('#localidade').value=dados.localidade
+}
+async function consultaCEP(cep){
+   
+    //https://viacep.com.br/ws/18015066/json/
+cep=cep.replace('.','').replace('-','')
+let url=`https://viacep.com.br/ws/${cep}/json/`
+
+let resposta = await fetch(url)
+console.log(resposta)
+
+let data= await resposta.json()
+console.log(data)
+return data
+
+}
+
+</script>
+</body>
+</html>
