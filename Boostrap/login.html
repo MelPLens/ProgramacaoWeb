@@ -8,13 +8,13 @@
   <title>Login Kaishi</title>
 </head>
 
-<body>
+<body style="background-image: url('https://marcialocacoescdn.azureedge.net/marcialocacoes/c5598884-2e23-4e3d-833b-bb877492c57f.jpg'); background-size: cover;">
   <div class="container">
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
       <main class="form-signin text-center">
         <form id="login-form">
           <img class="mb-4" src="./Images/logokaishi.jpg" alt="Your Logo" width="72" height="57">
-          <h1 class="h3 mb-3 fw-normal">Kaishi Cursos</h1>
+          <h1 id="h3 mb-3 fw-normal">Kaishi Cursos</h1>
 
           <div class="form-floating">
             <input type="email" class="form-control" id="email" placeholder="Seu endereço de e-mail">
@@ -23,7 +23,7 @@
 
           <div class="form-floating">
             <input type="password" class="form-control" id="password" placeholder="Sua senha">
-            <label for="password">Senha</label>
+            <label for "password">Senha</label>
           </div>
 
           <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
@@ -59,6 +59,16 @@
     .form-signin input[type="password"] {
       border: 1px solid #ced4da;
     }
+
+     h1{
+      color: black;
+      background-color: rgba(255, 255, 255, 0.84);
+      border-radius: 10px;
+     }
+    
+    
+    
+    
   </style>
 
   <script>
