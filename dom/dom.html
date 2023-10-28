@@ -1,0 +1,169 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body onload="listarClientes()">
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-8">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Pesquisar</label>
+                    <input type="text" class="form-control" id="txtPesquisar" placeholder="name@example.com">
+                  </div>
+
+
+                 </div>
+            <div class="col-4" style="margin-top: 30px;">
+                <button type="button" class="btn btn-primary" onclick="pesquisar()"><i class="bi bi-search"></i> Pesquisar</button>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-plus-circle-fill"></i> Novo</button>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col">E-mail</th>
+                      <!-- <th scope="col">Handle</th> -->
+                    </tr>
+                  </thead>
+                <tbody id="tbody">
+                 
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro de Cliente</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite seu nome">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="txtEmail" placeholder="Digite seu email">
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" onclick="salvar()">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+  <script>
+    let clientes=[]
+    const url = "https://652d7df4f9afa8ef4b2787a5.mockapi.io/cliente"
+
+    function salvar(){
+        let nome = document.querySelector('#exampleFormControlInput1').value
+        let email = document.querySelector('#txtEmail').value
+        let json = {nome, email}
+
+        fetch(url, {
+            method : 'POST',
+            headers : {'Content-Type' : 'application/json'},
+            body : JSON.stringify(json)
+        }).then(value => {
+            alert('Inserido com sucesso.')
+            listarClientes()
+        })
+    }
+
+
+    fetch(url, {
+            method : 'DELETE',
+            headers : {'Content-Type' : 'application/json'},
+            body : JSON.stringify(json)
+        }).then(value => {
+            alert('Excluído com sucesso.')
+            listarClientes()
+        })
+
+
+        
+    fetch(url + "/" ,{
+            method : 'PUT',
+            headers : {'Content-Type' : 'application/json'},
+            body : JSON.stringify(json)
+        }).then(value => {
+            alert('Excluído com sucesso.')
+            listarClientes()
+        })
+    function listarClientes(){
+        const url = "https://652d7df4f9afa8ef4b2787a5.mockapi.io/cliente"
+
+        fetch(url).then(resposta => resposta.json())
+                .then(valor =>{
+                    clientes=valor
+                    carregarTabela(valor)
+                })
+    }
+
+    function carregarTabela(clientes){
+        let tbody=document.querySelector("tbody")
+        tbody.textContent=""
+        clientes.forEach(cli => {
+            debugger
+            let tr = document.createElement('tr')
+            let thId=document.createElement('th')
+            let tdNome=document.createElement('td')
+            let tdEmail=document.createElement('td')
+            let tdExcluir = document.createElement('td')
+            let tdAlterar=document.createElement('td')
+
+            thId.textContent=cli.id
+            tdNome.textContent=cli.nome
+            tdEmail.textContent=cli.email
+            tdExcluir.innerHTML=`<button type="button" class="btn btn-danger" onclick="excluir(${cli.id})"><i class="bi bi-eraser"></i></i> Excluir</button>`
+            //tdAlterar.innerHTML=`<button type="button" class="btn btn-danger" onclick="excluir(${cli.id})"><i class="bi bi-eraser"></i></i> Excluir</button>`
+
+            tr.appendChild(thId)
+            tr.appendChild(tdNome)
+            tr.appendChild(tdEmail)
+            tr.appendChild(tdExcluir)
+            //tr.appendChild(tdAlterar)
+            tbody.appendChild(tr)
+        });
+    }
+function excluir(id){
+
+ alert('id:+id')
+}
+
+function alterar(id){
+  debugger
+  let ClienteAlterar=clientes.filter(cli=>cli.id)
+  document.querySelector(#txtnome).value=ClienteAlterar[0].none
+  document.querySelector(#txtEmail).value=ClienteAlterar[0].email
+  document.querySelector(#txtid).value=ClienteAlterar[0].id
+
+
+}
+
+  
+
+    function pesquisar() {
+        let textoPesquisa = document.querySelector('#txtPesquisar').value;
+        let clientesFiltrado = clientes.filter(cli => cli.nome.includes(textoPesquisa) || cli.email.includes(textoPesquisa))
+        carregarTabela(clientesFiltrado)
+    }
+  </script>
+</body>
+</html>
